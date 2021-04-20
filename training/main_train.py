@@ -26,7 +26,7 @@ parser.add_argument("-e", "--extract", help="extract wikidump into documents usi
 
 
 #parameters for create_ngrams.py
-# The file which has list of valid n-grams. URL given to download it or can generate it using word2vec_phrase.py
+# The file which has list of valid n-grams. word2vec phrase list can be obtained from drive
 word2vec_phrase_file = "additional_files/word2vec_phrases_list_tokenized.txt" 
 input_dir_ngrams = "processed_documents/docs_tokenised" # The directory which has tokensied documents. Already created above in tokenisation
 output_dir_ngrams = "processed_documents/docs_ngram" # This is where output will be stored. Will be created in the script.
