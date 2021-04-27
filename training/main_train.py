@@ -16,13 +16,15 @@ parser = argparse.ArgumentParser()
 
 # Parameters for extract.py
 wiki_extractor_path = "support_packages/WikiExtractor.py" # Give the Path to WikiExtractor.py file after you download it.
-input_dump = "dump/dumpfile" # The path to your Wikipedia XML dump.
+input_dump = "training/dump/eswiki-latest-pages-articles.xml" # The path to your Wikipedia XML dump.
 size ="500M"             # Size of each individual file extracted (you can vary file sizes)
 template ="no-templates" # Does not allow WikiExtractor to use any pre installed templates (avoid changing it till you are sure)
 output_processed_directory = "processed_documents/docs"   # output directory whre you want documents extracted from dump (path for the directory)
 
 parser.add_argument("-e", "--extract", help="extract wikidump into documents using WikiExtractor",
                     action="store_true")
+
+parser.add_argument("-i", "--input_dump", help="input wikidata dump file")
 
 
 #parameters for create_ngrams.py
@@ -45,7 +47,7 @@ parser.add_argument("-wv", "--word2vectrain", help = "train the word2vec model",
 args = parser.parse_args()
 
 if args.extract:  
-    query1 = "python extract.py "+wiki_extractor_path+" "+input_dump +" "+size+" "+template+" " +output_processed_directory
+    query1 = "python extract.py "+wiki_extractor_path+" "+args.input_dump +" "+size+" "+template+" " +output_processed_directory
     print (query1)
     os.system(query1)
 
